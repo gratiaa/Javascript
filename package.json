@@ -1,0 +1,19 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "Project1: Dinosaurs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gratiaa/Javascript.git"
+  },
+  "author": "Young Bae",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gratiaa/Javascript/issues"
+  },
+  "homepage": "https://github.com/gratiaa/Javascript#readme"
+}
