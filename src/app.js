@@ -1,9 +1,27 @@
-
+window.onload = function() {
     // Create Dino Constructor
-
+    function Dino({
+        species,
+        weight,
+        height,
+        diet,
+        where,
+        when,
+        fact
+    }) {
+        this.species = species
+        this.weight = weight
+        this.height = height
+        this.diet = diet
+        this.where = where
+        this.when = when
+        this.fact = fact
+    }
 
     // Create Dino Objects
-
+    const dinoDataScript = document.getElementById('dino-data')
+    const { Dinos: dinoDataArray } = JSON.parse(dinoDataScript.textContent)
+    const dinos = dinoDataArray.map(data => new Dino(data))
 
     // Create Human Object
 
@@ -27,6 +45,6 @@
         // Add tiles to DOM
 
     // Remove form from screen
-
+}
 
 // On button click, prepare and display infographic
