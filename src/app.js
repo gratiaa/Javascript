@@ -68,8 +68,6 @@ dinoCompareForm.onsubmit = e => {
         let data = {}
         const formData = new FormData(dinoCompareForm)
 
-        console.log(formData.entries())
-
         for (let [key, value] of formData) {
             data[key] = value
         }
@@ -117,7 +115,7 @@ dinoCompareForm.onsubmit = e => {
     }
 
     // Generate Tiles for each Dino in Array
-  
+    
         // Add tiles to DOM
 
     // Remove form from screen
