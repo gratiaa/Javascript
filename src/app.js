@@ -88,12 +88,33 @@ dinoCompareForm.onsubmit = e => {
 
     // Create Dino Compare Method 1
     // NOTE: Weight in JSON file is in lbs, height in inches.
+    function compareWeight(dinoWeight, humanWeight) {
+        if (!dinoWeight || !humanWeight) {
+            throw new Error('weights are both needed to compare')
+        }
+
+        return dinoWeight > humanWeight
+    }
 
     // Create Dino Compare Method 2
     // NOTE: Weight in JSON file is in lbs, height in inches.
+    function compareHeight(dinoHeight, humanHeight) {
+        if (!dinoHeight || !humanHeight) {
+            throw new Error('heights are both needed to compare')
+        }
+        
+        return dinoWeight > humanWeight
+    }
 
     // Create Dino Compare Method 3
     // NOTE: Weight in JSON file is in lbs, height in inches.
+    function compareDiet(dinoDiet, humanDiet) {
+        if (!dinoDiet || !humanDiet) {
+            throw new Error('diets are both needed to compare')
+        }
+        
+        return dinoDiet > humanDiet
+    }
 
     // Generate Tiles for each Dino in Array
   
