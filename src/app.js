@@ -4,7 +4,7 @@ import {Human, Dino} from './js/constructors.js';
 // On button click, prepare and display infographic
 const dinoCompareForm = document.getElementById('dinoCompare');
 
-dinoCompareForm.onsubmit = (e) => {
+const dinoCompareSubmitHandler = (e) => {
   e.preventDefault();
 
   // Create Dino Objects
@@ -98,3 +98,5 @@ dinoCompareForm.onsubmit = (e) => {
   // Remove form from screen
   dinoCompareForm.remove();
 };
+
+dinoCompareForm.addEventListener('submit', dinoCompareSubmitHandler);
