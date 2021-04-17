@@ -164,12 +164,18 @@ dinoCompareForm.onsubmit = (e) => {
     return itemEl;
   })();
 
-  tiles.push(humanTile);
+  let shuffledTiles = [...tiles.sort(() => Math.random() - 0.5)];
+  // Put human tile in the middle of the array
+  shuffledTiles = [
+    ...shuffledTiles.slice(0, shuffledTiles.length / 2),
+    humanTile,
+    ...shuffledTiles.slice(shuffledTiles.length / 2),
+  ];
 
   // Add tiles to DOM
   const gridEl = document.getElementById('grid');
-  gridEl.append(...tiles.sort(() => Math.random() - 0.5));
+  gridEl.append(...shuffledTiles);
 
   // Remove form from screen
-  dinoCompareForm.style.display = 'none';
+  dinoCompareForm.remove();
 };
