@@ -3,6 +3,7 @@ import {Human, Dino} from './js/constructors.js';
 
 // On button click, prepare and display infographic
 const dinoCompareForm = document.getElementById('dinoCompare');
+
 dinoCompareForm.onsubmit = (e) => {
   e.preventDefault();
 
@@ -13,7 +14,7 @@ dinoCompareForm.onsubmit = (e) => {
 
   // Create Human Object
   // Use IIFE to get human data from form
-  const human = (function () {
+  const human = (function createHumanFromInput() {
     let data = {};
     const formData = new FormData(dinoCompareForm);
 
@@ -64,7 +65,7 @@ dinoCompareForm.onsubmit = (e) => {
     return itemEl;
   });
 
-  const humanTile = (function () {
+  const humanTile = (function createHumanTile() {
     const {name} = human;
 
     const itemEl = document.createElement('div');
