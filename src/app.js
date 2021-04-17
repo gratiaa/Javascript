@@ -1,3 +1,4 @@
+const {compareDiet, compareHeight, compareWeight} = window.utils;
 function Animal({diet, weight, height}) {
   this.diet = diet;
   this.weight = weight;
@@ -43,8 +44,6 @@ dinoCompareForm.onsubmit = (e) => {
   const {Dinos: dinoDataArray} = JSON.parse(dinoDataScript.textContent);
   const dinos = dinoDataArray.map((data) => new Dino(data));
 
-  console.log('dinos created: ', dinos);
-
   // Create Human Object
   // Use IIFE to get human data from form
   const human = (function () {
@@ -64,54 +63,6 @@ dinoCompareForm.onsubmit = (e) => {
       name,
     });
   })();
-
-  console.log('human created: ', human);
-
-  // Create Dino Compare Method 1
-  // NOTE: Weight in JSON file is in lbs, height in inches.
-  function compareWeight(dinoWeight, humanWeight) {
-    if (!dinoWeight || !humanWeight) {
-      throw new Error('weights are both needed to compare');
-    }
-
-    if (dinoWeight > humanWeight) {
-      return 'heavier';
-    } else if (dinoWeight < humanWeight) {
-      return 'lighter';
-    }
-
-    return 'has the same weight';
-  }
-
-  // Create Dino Compare Method 2
-  // NOTE: Weight in JSON file is in lbs, height in inches.
-  function compareHeight(dinoHeight, humanHeight) {
-    if (!dinoHeight || !humanHeight) {
-      throw new Error('heights are both needed to compare');
-    }
-
-    if (dinoHeight > humanHeight) {
-      return 'taller';
-    } else if (dinoHeight < humanHeight) {
-      return 'smaller';
-    }
-
-    return 'has the same height';
-  }
-
-  // Create Dino Compare Method 3
-  // NOTE: Weight in JSON file is in lbs, height in inches.
-  function compareDiet(dinoDiet, humanDiet) {
-    if (!dinoDiet || !humanDiet) {
-      throw new Error('diets are both needed to compare');
-    }
-
-    if (dinoDiet !== humanDiet) {
-      return 'has a different diet';
-    }
-
-    return 'has the same diet';
-  }
 
   // Generate Tiles for each Dino in Array
   const tiles = dinos.map(({diet, weight, height, species, fact}) => {
