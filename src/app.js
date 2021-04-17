@@ -1,4 +1,5 @@
 const {compareDiet, compareHeight, compareWeight} = window.utils;
+
 function Animal({diet, weight, height}) {
   this.diet = diet;
   this.weight = weight;
