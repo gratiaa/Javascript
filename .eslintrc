@@ -1,3 +1,6 @@
 {
-  "extends": "udacity"
+  "extends": "udacity",
+  "parserOptions": {
+    "sourceType": "module"
+  }
 }
