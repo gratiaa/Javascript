@@ -1,4 +1,3 @@
-import {compareDiet, compareHeight, compareWeight} from './js/utils.js';
 import {Human, Dino} from './js/constructors.js';
 
 const BIRD_SPECIES = 'Pigeon';
@@ -35,45 +34,45 @@ const dinoCompareSubmitHandler = (e) => {
   })();
 
   // Generate Tiles for each Dino in Array
-  const tiles = dinos.map(
-    ({diet, weight, height, species, fact, when, where}) => {
-      const itemEl = document.createElement('div');
-      itemEl.className = 'grid-item';
+  const tiles = dinos.map((dino) => {
+    const {species, fact, when, where} = dino;
 
-      // Each Dino title must include at least the species, an image and a fact.
-      // The dino fact displayed should be chosen at random from at least 6 options
-      // (including your 3 methods).
-      const titleEl = document.createElement('h3');
-      titleEl.innerText = species;
+    const itemEl = document.createElement('div');
+    itemEl.className = 'grid-item';
 
-      const imgEl = document.createElement('img');
-      imgEl.src = `images/${species
-        .trim()
-        .split(' ')
-        .join('')
-        .toLowerCase()}.png`;
-      imgEl.alt = `image of ${species}`;
+    // Each Dino title must include at least the species, an image and a fact.
+    // The dino fact displayed should be chosen at random from at least 6 options
+    // (including your 3 methods).
+    const titleEl = document.createElement('h3');
+    titleEl.innerText = species;
 
-      const textEl = document.createElement('p');
-      const descriptions = [
-        compareWeight(weight, human.weight),
-        compareHeight(height, human.height),
-        compareDiet(diet, human.diet),
-        fact,
-        when,
-        where,
-      ];
+    const imgEl = document.createElement('img');
+    imgEl.src = `images/${species
+      .trim()
+      .split(' ')
+      .join('')
+      .toLowerCase()}.png`;
+    imgEl.alt = `image of ${species}`;
 
-      textEl.innerHTML =
-        species === BIRD_SPECIES
-          ? fact
-          : descriptions.sort(() => Math.random() - 0.5)[0];
+    const textEl = document.createElement('p');
+    const descriptions = [
+      dino.compareWeight(human),
+      dino.compareHeight(human),
+      dino.compareDiet(human),
+      fact,
+      `Take the time machine and go back to ${when} if you want to see it.`,
+      `It lived in ${where}. Where are you from?`,
+    ];
 
-      itemEl.append(titleEl, imgEl, textEl);
+    textEl.innerHTML =
+      species === BIRD_SPECIES
+        ? fact
+        : descriptions.sort(() => Math.random() - 0.5)[0];
 
-      return itemEl;
-    }
-  );
+    itemEl.append(titleEl, imgEl, textEl);
+
+    return itemEl;
+  });
 
   const humanTile = (function createHumanTile() {
     const {name} = human;

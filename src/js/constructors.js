@@ -60,3 +60,58 @@ export function Dino({species, weight, height, diet, where, when, fact}) {
 
 Dino.prototype = Object.create(Animal.prototype);
 Dino.prototype.constructor = Dino;
+
+/**
+ * @description Compare dino's weight from human's
+ * @param {Human} human - human object
+ * @returns {string} comparison result
+ */
+Dino.prototype.compareWeight = function (human) {
+  if (!this.weight || !human.weight) {
+    throw new Error('weights are both needed to compare');
+  }
+
+  if (this.weight > human.weight) {
+    return 'It is heavier than you. Do not bother with him.';
+  } else if (this.weight < human.weight) {
+    return 'It is lighter than you.. Maybe you can tame it.';
+  }
+
+  return 'It has the same weight as you! Not afraid anymore!';
+};
+
+/**
+ * @description Compare dino's height from human's
+ * @param {Human} human - human object
+ * @returns {string} comparison result
+ */
+Dino.prototype.compareHeight = function (human) {
+  if (!this.height || !human.height) {
+    throw new Error('heights are both needed to compare');
+  }
+
+  if (this.height > human.height) {
+    return 'It is taller than you. Think twice before wrestling with it.';
+  } else if (this.height < human.height) {
+    return 'It is smaller. Not afraid anymore!';
+  }
+
+  return 'It has the same height as you! You guys see everything on the same level.';
+};
+
+/**
+ * @description Compare dino's diet from human's
+ * @param {Human} human - human object
+ * @returns {string} comparison result
+ */
+Dino.prototype.compareDiet = function (human) {
+  if (!this.diet || !human.diet) {
+    throw new Error('diets are both needed to compare');
+  }
+
+  if (this.diet !== human.diet) {
+    return 'It has a different diet. Ask carefully before you guys go out for dinner together.';
+  }
+
+  return 'It has the same diet as you! Might be your good lunch buddy.';
+};
