@@ -33,37 +33,42 @@ const dinoCompareSubmitHandler = (e) => {
   })();
 
   // Generate Tiles for each Dino in Array
-  const tiles = dinos.map(({diet, weight, height, species, fact}) => {
-    const itemEl = document.createElement('div');
-    itemEl.className = 'grid-item';
+  const tiles = dinos.map(
+    ({diet, weight, height, species, fact, when, where}) => {
+      const itemEl = document.createElement('div');
+      itemEl.className = 'grid-item';
 
-    // Each Dino title must include at least the species, an image and a fact.
-    // The dino fact displayed should be chosen at random from at least 6 options
-    // (including your 3 methods).
-    const titleEl = document.createElement('h3');
-    titleEl.innerText = species;
+      // Each Dino title must include at least the species, an image and a fact.
+      // The dino fact displayed should be chosen at random from at least 6 options
+      // (including your 3 methods).
+      const titleEl = document.createElement('h3');
+      titleEl.innerText = species;
 
-    const imgEl = document.createElement('img');
-    imgEl.src = `images/${species
-      .trim()
-      .split(' ')
-      .join('')
-      .toLowerCase()}.png`;
-    imgEl.alt = `image of ${species}`;
+      const imgEl = document.createElement('img');
+      imgEl.src = `images/${species
+        .trim()
+        .split(' ')
+        .join('')
+        .toLowerCase()}.png`;
+      imgEl.alt = `image of ${species}`;
 
-    const textEl = document.createElement('p');
+      const textEl = document.createElement('p');
+      const facts = [
+        compareWeight(weight, human.weight),
+        compareHeight(height, human.height),
+        compareDiet(diet, human.diet),
+        fact,
+        when,
+        where,
+      ];
 
-    textEl.innerHTML = `${fact}<br />Compare from ${
-      human.name
-    }: ${compareWeight(weight, human.weight)}, ${compareHeight(
-      height,
-      human.height
-    )}, ${compareDiet(diet, human.diet)}`;
+      textEl.innerHTML = facts.sort(() => Math.random() - 0.5)[0];
 
-    itemEl.append(titleEl, imgEl, textEl);
+      itemEl.append(titleEl, imgEl, textEl);
 
-    return itemEl;
-  });
+      return itemEl;
+    }
+  );
 
   const humanTile = (function createHumanTile() {
     const {name} = human;

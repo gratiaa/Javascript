@@ -11,12 +11,12 @@ export function compareWeight(dinoWeight, humanWeight) {
   }
 
   if (dinoWeight > humanWeight) {
-    return 'heavier';
+    return 'It is heavier';
   } else if (dinoWeight < humanWeight) {
-    return 'lighter';
+    return 'It is lighter';
   }
 
-  return 'has the same weight';
+  return 'It has the same weight';
 }
 
 /**
@@ -32,12 +32,12 @@ export function compareHeight(dinoHeight, humanHeight) {
   }
 
   if (dinoHeight > humanHeight) {
-    return 'taller';
+    return 'It is taller';
   } else if (dinoHeight < humanHeight) {
-    return 'smaller';
+    return 'It is smaller';
   }
 
-  return 'has the same height';
+  return 'It has the same height';
 }
 
 /**
@@ -53,8 +53,8 @@ export function compareDiet(dinoDiet, humanDiet) {
   }
 
   if (dinoDiet !== humanDiet) {
-    return 'has a different diet';
+    return 'It has a different diet';
   }
 
-  return 'has the same diet';
+  return 'It has the same diet';
 }
