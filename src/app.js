@@ -35,7 +35,7 @@ const dinoCompareSubmitHandler = (e) => {
 
   // Generate Tiles for each Dino in Array
   const tiles = dinos.map((dino) => {
-    const {species, fact, when, where} = dino;
+    const {species, fact} = dino;
 
     const itemEl = document.createElement('div');
     itemEl.className = 'grid-item';
@@ -59,9 +59,9 @@ const dinoCompareSubmitHandler = (e) => {
       dino.compareWeight(human),
       dino.compareHeight(human),
       dino.compareDiet(human),
-      fact,
-      `Take the time machine and go back to ${when} if you want to see it.`,
-      `It lived in ${where}. Where are you from?`,
+      dino.getFact(),
+      dino.getWhen(),
+      dino.getWhere(),
     ];
 
     textEl.innerHTML =

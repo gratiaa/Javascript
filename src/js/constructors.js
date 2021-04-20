@@ -72,12 +72,12 @@ Dino.prototype.compareWeight = function (human) {
   }
 
   if (this.weight > human.weight) {
-    return 'It is heavier than you. Do not bother with him.';
+    return `${this.species} is heavier than ${human.name}. Do not bother with it!`;
   } else if (this.weight < human.weight) {
-    return 'It is lighter than you.. Maybe you can tame it.';
+    return `${this.species} is lighter than ${human.name}... Maybe you can tame it.`;
   }
 
-  return 'It has the same weight as you! Not afraid anymore!';
+  return `${this.species} has the same weight as ${human.name}! Not afraid anymore!`;
 };
 
 /**
@@ -91,12 +91,12 @@ Dino.prototype.compareHeight = function (human) {
   }
 
   if (this.height > human.height) {
-    return 'It is taller than you. Think twice before wrestling with it.';
+    return `${this.species} is taller than ${human.name}. Think twice before wrestling with it.`;
   } else if (this.height < human.height) {
-    return 'It is smaller. Not afraid anymore!';
+    return `${this.species} is smaller than ${human.name}. Not afraid anymore!`;
   }
 
-  return 'It has the same height as you! You guys see everything on the same level.';
+  return `${this.species} has the same height as ${human.name}! You guys see everything on the same level.`;
 };
 
 /**
@@ -110,8 +110,32 @@ Dino.prototype.compareDiet = function (human) {
   }
 
   if (this.diet !== human.diet) {
-    return 'It has a different diet. Ask carefully before you guys go out for dinner together.';
+    return `${this.species} has a different diet from ${human.name}. Ask carefully before you go out for dinner together.`;
   }
 
-  return 'It has the same diet as you! Might be your good lunch buddy.';
+  return `${this.species} has the same diet as ${human.name}! Might be your good lunch buddy.`;
+};
+
+/**
+ * @description Get when the dino lived
+ * @returns {string} description
+ */
+Dino.prototype.getWhen = function () {
+  return `Take the time machine and go back to ${this.when} if you want to see it.`;
+};
+
+/**
+ * @description Get where the dino lived
+ * @returns {string} description
+ */
+Dino.prototype.getWhere = function () {
+  return `${this.species} lived in ${this.where}. Where are you from?`;
+};
+
+/**
+ * @description Get the fact about the dino
+ * @returns {string} description
+ */
+Dino.prototype.getFact = function () {
+  return `Fun fact! ${this.fact}`;
 };
