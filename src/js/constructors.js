@@ -121,7 +121,7 @@ Dino.prototype.compareDiet = function (human) {
  * @returns {string} description
  */
 Dino.prototype.getWhen = function () {
-  return `Take the time machine and go back to ${this.when} if you want to see it.`;
+  return `Take the time machine and go back to ${this.when} if you want to meet with ${this.species}.`;
 };
 
 /**
