@@ -1,6 +1,8 @@
 import {compareDiet, compareHeight, compareWeight} from './js/utils.js';
 import {Human, Dino} from './js/constructors.js';
 
+const BIRD_SPECIES = 'Pigeon';
+
 // On button click, prepare and display infographic
 const dinoCompareForm = document.getElementById('dinoCompare');
 
@@ -53,7 +55,7 @@ const dinoCompareSubmitHandler = (e) => {
       imgEl.alt = `image of ${species}`;
 
       const textEl = document.createElement('p');
-      const facts = [
+      const descriptions = [
         compareWeight(weight, human.weight),
         compareHeight(height, human.height),
         compareDiet(diet, human.diet),
@@ -62,7 +64,10 @@ const dinoCompareSubmitHandler = (e) => {
         where,
       ];
 
-      textEl.innerHTML = facts.sort(() => Math.random() - 0.5)[0];
+      textEl.innerHTML =
+        species === BIRD_SPECIES
+          ? fact
+          : descriptions.sort(() => Math.random() - 0.5)[0];
 
       itemEl.append(titleEl, imgEl, textEl);
 
